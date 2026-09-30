@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Rapi Coiffure — Paiement</title>
+    <meta name="theme-color" content="#363636">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .pay { min-height: 100vh; min-height: 100svh; padding: calc(1.5rem + env(safe-area-inset-top, 0px)) 0 calc(2.5rem + env(safe-area-inset-bottom, 0px)); display: flex; flex-direction: column; }
+        .pay__top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+        .pay__top img { height: 52px; width: auto; }
+        .pay__card { width: min(100%, 560px); margin: 0 auto; }
+        .pay__card .step__title { text-align: center; }
+        .pay__msg { text-align: center; margin: 1rem auto; }
+        .pay__btn { width: 100%; margin-top: 1.5rem; }
+        .pay__methods { text-align: center; color: var(--text); margin: 1rem auto 0; font-size: 1.05rem; }
+        .pay__secure { text-align: center; color: var(--muted); font-style: italic; font-size: .95rem; margin: .35rem auto 0; }
+        .pay__center { text-align: center; }
+        .pay__center .btn { margin-top: 1rem; }
+        .pay__legal { margin: 2.5rem auto 0; text-align: center; color: var(--muted); font-size: .9rem; }
+    </style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.5c.3 2.2 2.3 4.2 4.5 4.5l1-1.2 1.8.8-.3 1.6c-3.8.3-7.5-3.4-7.2-7.2l1.6-.3.8 1.8z"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+</svg>
+
+<main class="pay">
+    <div class="container container--narrow">
+        <div class="pay__top">
+            <a href="index.html"><img src="assets/img/logo-wordmark.png" alt="Rapi Coiffure"></a>
+            <div class="lang" role="group">
+                <button type="button" class="lang__btn" data-lang="fr">FR</button>
+                <button type="button" class="lang__btn" data-lang="en">EN</button>
+            </div>
+        </div>
+
+        <div class="booker pay__card">
+            <h1 class="step__title" id="payTitle"></h1>
+            <div id="payContent" aria-live="polite"></div>
+        </div>
+
+        <p class="pay__legal" id="payLegal"></p>
+    </div>
+</main>
+
+<!-- Database library (used automatically once js/storage.js has your Supabase URL + key) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/config.js"></script>
+<script src="js/translations.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/pay.js"></script>
+</body>
+</html>

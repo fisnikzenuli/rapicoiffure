@@ -1,0 +1,5 @@
+# Tells Netlify: this is a ready-made website — publish these files as they are,
+# don't try to "build" anything.
+[build]
+  publish = "."
+  command = "echo 'No build needed'"
